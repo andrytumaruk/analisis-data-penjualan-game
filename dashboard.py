@@ -11,7 +11,7 @@ st.title("📊 Dashboard Penjualan Video Game 🎮")
 # Fungsi untuk load dataset dengan cache
 @st.cache_data
 def load_data():
-    df = pd.read_csv("vgsales.csv", encoding='latin-1')
+    df = pd.read_csv("data/vgsales.csv", encoding='latin-1')
     df['Year'].fillna(df['Year'].median(), inplace=True)
     df['Publisher'].fillna(df['Publisher'].mode()[0], inplace=True)
     return df
