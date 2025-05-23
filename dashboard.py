@@ -124,7 +124,7 @@ with col11:
     region_genres = df.groupby('Genre')[['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales']].sum()
     selected_data = region_genres.loc[[selected_genre_radio]].T.reset_index()
     selected_data.columns = ['Wilayah', 'Penjualan']
-    plt.figure(figsize=(8, 7))
+    plt.figure(figsize=(8, 6))
     sns.barplot(x='Wilayah', y='Penjualan', data=selected_data, palette='pastel')
     st.pyplot(plt)
 
@@ -144,7 +144,7 @@ with col13:
     genre_trend = df.groupby(['Year', 'Genre'])['Global_Sales'].sum().reset_index()
     selected_genre_trend = st.selectbox("Pilih Genre", sorted(genre_trend['Genre'].unique()))
     genre_filtered = genre_trend[genre_trend['Genre'] == selected_genre_trend]
-    plt.figure(figsize=(12, 7))
+    plt.figure(figsize=(12, 6))
     sns.lineplot(x='Year', y='Global_Sales', data=genre_filtered)
     st.pyplot(plt)
 
