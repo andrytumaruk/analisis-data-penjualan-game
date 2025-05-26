@@ -64,7 +64,7 @@ col7, col8, col9 = st.columns(3)
 with col7:
     st.subheader("Top 10 Platform Penjualan Global")
     platform_sales = df_filtered.groupby('Platform')['Global_Sales'].sum().sort_values(ascending=False).head(10)
-    plt.figure(figsize=(8, 5))
+    plt.figure(figsize=(8, 6))
     sns.barplot(x=platform_sales.values, y=platform_sales.index, palette='viridis')
     plt.title("Top 10 Platform dengan Penjualan Global Tertinggi")
     st.pyplot(plt)
