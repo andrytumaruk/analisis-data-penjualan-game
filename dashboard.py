@@ -23,6 +23,11 @@ with st.sidebar:
     st.header("Filter Tahun")
     year_range = st.slider("Pilih Rentang Tahun", int(df['Year'].min()), int(df['Year'].max()), (1980, 2020))
 
+    
+    st.header("Pengaturan Grafik")
+    max_top = min(20, len(df))
+    top_n = st.slider("Jumlah Game Teratas", 1, max_top, 10)   
+
     st.header("Filter berdasarkan Region")
     show_na = st.checkbox("Tampilkan NA_Sales", value=True)
     show_eu = st.checkbox("Tampilkan EU_Sales", value=True)
@@ -34,12 +39,6 @@ with st.sidebar:
     if show_eu: selected_columns.append('EU_Sales')
     if show_jp: selected_columns.append('JP_Sales')
     if show_other: selected_columns.append('Other_Sales')
-
-    st.header("Pengaturan Grafik")
-    max_top = min(20, len(df))
-    top_n = st.slider("Jumlah Game Teratas", 1, max_top, 10)    
-
-    
 
     st.header("Pilih Genre")
     genres_sidebar = sorted(df['Genre'].unique())
